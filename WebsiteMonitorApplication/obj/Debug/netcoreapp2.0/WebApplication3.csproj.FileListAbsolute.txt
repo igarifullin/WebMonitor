@@ -1,0 +1,12 @@
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\WebApplication3.deps.json
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\WebApplication3.runtimeconfig.json
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\WebApplication3.runtimeconfig.dev.json
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\WebApplication3.dll
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\WebApplication3.pdb
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\WebApplication3.csprojResolveAssemblyReference.cache
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\WebApplication3.csproj.CoreCompileInputs.cache
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\WebApplication3.AssemblyInfoInputs.cache
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\WebApplication3.AssemblyInfo.cs
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\WebApplication3.dll
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\WebApplication3.pdb

@@ -1,0 +1,12 @@
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\WebsiteMonitorApplication.deps.json
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\WebsiteMonitorApplication.runtimeconfig.json
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\WebsiteMonitorApplication.runtimeconfig.dev.json
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\WebsiteMonitorApplication.dll
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.0\WebsiteMonitorApplication.pdb
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\WebsiteMonitorApplication.csprojResolveAssemblyReference.cache
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\WebsiteMonitorApplication.csproj.CoreCompileInputs.cache
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\WebsiteMonitorApplication.AssemblyInfoInputs.cache
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\WebsiteMonitorApplication.AssemblyInfo.cs
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\WebsiteMonitorApplication.dll
+C:\Users\i.garifullin\Documents\Visual Studio 2017\Projects\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.0\WebsiteMonitorApplication.pdb
