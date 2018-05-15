@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebsiteMonitorApplication.Core.Entities
 {
@@ -10,6 +11,7 @@ namespace WebsiteMonitorApplication.Core.Entities
         /// <summary>
         /// Id
         /// </summary>
+        [Key]
         public int Id { get; set; }
 
         /// <summary>

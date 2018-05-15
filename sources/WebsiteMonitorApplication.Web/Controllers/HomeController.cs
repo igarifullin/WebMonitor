@@ -18,7 +18,7 @@ namespace WebsiteMonitorApplication.Web.Controllers
         public async Task<IActionResult> Index()
         {
             var applications = await _applicationService.GetApplicationsStatesAsync();
-            return View();
+            return View(applications);
         }
 
         public IActionResult About()

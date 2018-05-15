@@ -2,6 +2,13 @@
 
 namespace WebsiteMonitorApplication.Core.Services
 {
+    /// <summary>
+    /// Application monitor
+    /// Responsible for:
+    /// - get all aplications
+    /// - check each application with the checker
+    /// - log check result
+    /// </summary>
     public interface IApplicationMonitorService
     {
         /// <summary>

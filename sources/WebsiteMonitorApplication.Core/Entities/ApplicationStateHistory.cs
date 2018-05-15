@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using WebsiteMonitorApplication.Core.Enums;
 
 namespace WebsiteMonitorApplication.Core.Entities
@@ -11,12 +12,8 @@ namespace WebsiteMonitorApplication.Core.Entities
         /// <summary>
         /// Id of record
         /// </summary>
+        [Key]
         public Guid RecordId { get; set; }
-
-        /// <summary>
-        /// Application id
-        /// </summary>
-        public Guid ApplicationId { get; set; }
 
         /// <summary>
         /// Application state
@@ -29,8 +26,13 @@ namespace WebsiteMonitorApplication.Core.Entities
         public DateTime Date { get; set; }
 
         /// <summary>
+        /// Application id
+        /// </summary>
+        public Guid ApplicationId { get; set; }
+
+        /// <summary>
         /// Link to application by ApplicationId
         /// </summary>
-        public Application Application { get; set; }
+        public virtual Application Application { get; set; }
     }
 }

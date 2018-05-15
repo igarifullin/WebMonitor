@@ -19,17 +19,26 @@ namespace WebsiteMonitorApplication.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Application>().HasKey(x => x.Id);
-            builder.Entity<ApplicationStateHistory>().HasKey(x => x.RecordId);
-            builder.Entity<Configuration>().HasKey(x => x.Id);
+            //builder.Entity<Application>().HasMany(x => x.History).WithOne(x => x.Application);
+            //builder.Entity<ApplicationStateHistory>().HasOne(x => x.Application).WithMany(x => x.History);
 
-            builder.Entity<Application>().HasMany(x => x.History);
-            builder.Entity<ApplicationStateHistory>().HasOne(x => x.Application);
+            //builder.Entity<Application>()
+            //    .HasMany(x => x.History)
+            //    .WithOne(x => x.Application)
+            //    .HasForeignKey(x => x.ApplicationId)
+            //    .HasPrincipalKey(x => x.Id);
 
             base.OnModelCreating(builder);
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
+
+            builder.Entity<ApplicationStateHistory>()
+                .HasOne(x => x.Application)
+                .WithMany(x => x.History)
+                .IsRequired()
+                .HasForeignKey(x => x.ApplicationId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

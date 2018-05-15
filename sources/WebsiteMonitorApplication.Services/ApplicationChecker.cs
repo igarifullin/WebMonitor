@@ -43,6 +43,7 @@ namespace WebsiteMonitorApplication.Services
             {
                 result.IsSuccess = false;
                 result.State = ApplicationState.CheckedWithError;
+                result.ErrorMessage = e.Message;
             }
 
             return result;

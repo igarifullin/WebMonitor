@@ -14,6 +14,7 @@ namespace WebsiteMonitorApplication.Services
         public static void AddUnitOfWork(this IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, DbUnitOfWork>();
+            services.AddTransient<IUnitOfWorkFactory, DbUnitOfWorkFactory>();
         }
 
         public static void AddCustomHttpClient(this IServiceCollection services)
@@ -28,7 +29,22 @@ namespace WebsiteMonitorApplication.Services
 
         public static void AddApplicationMonitor(this IServiceCollection services)
         {
-            services.AddSingleton<IApplicationMonitorService, ApplicationMonitorService>();
+            services.AddTransient<IApplicationMonitorService, ApplicationMonitorService>();
+        }
+
+        public static void AddConfigurationService(this IServiceCollection services)
+        {
+            services.AddTransient<IConfigurationService, ConfigurationService>();
+        }
+
+        public static void AddApplicationVisitor(this IServiceCollection services)
+        {
+            services.AddTransient<IApplicationVisitor, ApplicationVisitor>();
+        }
+
+        public static void AddCancellationTokenResourceAccessor(this IServiceCollection services)
+        {
+            services.AddSingleton<ICancellationTokenResourceAccessor, CancellationTokenResourceAccessor>();
         }
     }
 }

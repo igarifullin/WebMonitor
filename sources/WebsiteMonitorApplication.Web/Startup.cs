@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Threading;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
@@ -38,6 +39,9 @@ namespace WebsiteMonitorApplication.Web
             services.AddCustomHttpClient();
             services.AddApplicationChecker();
             services.AddApplicationMonitor();
+            services.AddConfigurationService();
+            services.AddApplicationVisitor();
+            services.AddCancellationTokenResourceAccessor();
 
             services.AddMvc();
         }

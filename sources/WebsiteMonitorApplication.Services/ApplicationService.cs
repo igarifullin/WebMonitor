@@ -1,42 +1,60 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebsiteMonitorApplication.Core;
 using WebsiteMonitorApplication.Core.Entities;
+using WebsiteMonitorApplication.Core.Enums;
 using WebsiteMonitorApplication.Core.Services;
 
 namespace WebsiteMonitorApplication.Services
 {
     public class ApplicationService : IApplicationService
     {
-        private readonly IUnitOfWork _uow;
+        private readonly IUnitOfWorkFactory _uowFactory;
 
-        public ApplicationService(IUnitOfWork uow)
+        public ApplicationService(IUnitOfWorkFactory uowFactory)
         {
-            _uow = uow;
+            _uowFactory = uowFactory;
         }
 
         public async Task<ApplicationStateViewModel[]> GetApplicationsStatesAsync()
         {
-            var applications = _uow.Get<Application>().AsQueryable();
-            var history = _uow.Get<ApplicationStateHistory>()
+            var uow = _uowFactory.Create();
+
+            var applications = uow.Get<Application>().AsQueryable();
+
+            var history = uow.Get<ApplicationStateHistory>()
                 .AsQueryable()
                 .GroupBy(x => x.ApplicationId)
                 .Select(x =>
                     x.OrderByDescending(z => z.Date)
                         .FirstOrDefault());
 
-            var result = await applications.Join(history,
+            var result = await applications
+                .GroupJoin(history,
                     app => app.Id,
                     hist => hist.ApplicationId,
-                    (app, hist) => new ApplicationStateViewModel
+                    (app, hist) => new
                     {
-                        Name = app.Name,
-                        CheckDate = hist.Date,
-                        State = hist.State
+                        App = app,
+                        Histories = hist
                     })
+                .SelectMany(z => z.Histories.DefaultIfEmpty(), (z, x) => new ApplicationStateViewModel
+                {
+                    Name = z.App.Name,
+                    CheckDate = x != null ? (DateTime?)x.Date : null,
+                    State = x != null ? x.State : ApplicationState.DidNotCheck
+                })
                 .ToArrayAsync();
 
+            return result;
+        }
+
+        private IEnumerable<T> GetDefaultOrEmpty<T>(IEnumerable<T> array)
+        {
+            var result = array.DefaultIfEmpty(default(T));
             return result;
         }
     }

@@ -6,19 +6,20 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
-using WebsiteMonitorApplication.Core.Entities;
+using WebsiteMonitorApplication.Core.Enums;
+using WebsiteMonitorApplication.Data;
 
 namespace WebsiteMonitorApplication.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180514142041_new-tables")]
-    partial class newtables
+    [Migration("20180515091935_NewTables")]
+    partial class NewTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
+                .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -165,6 +166,18 @@ namespace WebsiteMonitorApplication.Data.Migrations
                     b.ToTable("History");
                 });
 
+            modelBuilder.Entity("WebsiteMonitorApplication.Core.Entities.Configuration", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<TimeSpan>("Interval");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Configuration");
+                });
+
             modelBuilder.Entity("WebsiteMonitorApplication.Core.Entities.User", b =>
                 {
                     b.Property<string>("Id")
@@ -214,18 +227,6 @@ namespace WebsiteMonitorApplication.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("WebsiteMonitorApplication.Core.Entities.Configuration", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<TimeSpan>("Interval");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Configuration");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

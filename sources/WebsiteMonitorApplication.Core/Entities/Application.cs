@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebsiteMonitorApplication.Core.Entities
 {
@@ -11,6 +12,7 @@ namespace WebsiteMonitorApplication.Core.Entities
         /// <summary>
         /// Unique identifier
         /// </summary>
+        [Key]
         public Guid Id { get; set; }
 
         /// <summary>
@@ -36,6 +38,11 @@ namespace WebsiteMonitorApplication.Core.Entities
         /// <summary>
         /// Checks history
         /// </summary>
-        public List<ApplicationStateHistory> History { get; set; }
+        public virtual ICollection<ApplicationStateHistory> History { get; set; }
+
+        public Application()
+        {
+            History = new List<ApplicationStateHistory>();
+        }
     }
 }

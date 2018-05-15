@@ -9,19 +9,21 @@ namespace WebsiteMonitorApplication.Services
 {
     public class ApplicationMonitorService : IApplicationMonitorService
     {
-        private readonly IUnitOfWork _uow;
+        private readonly IUnitOfWorkFactory _uowFactory;
         private readonly IApplicationChecker _checker;
 
-        public ApplicationMonitorService(IUnitOfWork uow,
+        public ApplicationMonitorService(IUnitOfWorkFactory uowFactory,
             IApplicationChecker checker)
         {
-            _uow = uow;
+            _uowFactory = uowFactory;
             _checker = checker;
         }
 
         public async Task CheckApplicationsAsync()
         {
-            var applications = await _uow.Get<Application>().AsQueryable().ToArrayAsync();
+            var uow = _uowFactory.Create();
+
+            var applications = await uow.Get<Application>().AsQueryable().ToArrayAsync();
 
             foreach (var application in applications)
             {
@@ -40,6 +42,8 @@ namespace WebsiteMonitorApplication.Services
 
         private async Task SaveResultAsync(Guid applicationId, CheckResult checkResult)
         {
+            var uow = _uowFactory.Create();
+
             var historyRecord = new ApplicationStateHistory
             {
                 ApplicationId = applicationId,
@@ -47,8 +51,8 @@ namespace WebsiteMonitorApplication.Services
                 State = checkResult.State
             };
 
-            _uow.Get<ApplicationStateHistory>().Add(historyRecord);
-            await _uow.SaveChangesAsync();
+            uow.Get<ApplicationStateHistory>().Add(historyRecord);
+            await uow.SaveChangesAsync();
         }
     }
 }
