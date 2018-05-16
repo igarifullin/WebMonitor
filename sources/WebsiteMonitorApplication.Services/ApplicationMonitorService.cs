@@ -31,7 +31,7 @@ namespace WebsiteMonitorApplication.Services
                 var checkResult = await CheckApplicationAsync(application);
 
                 // Save result
-                await SaveResultAsync(application.Id, checkResult);
+                await SaveResultAsync(application, checkResult);
             }
         }
 
@@ -40,18 +40,21 @@ namespace WebsiteMonitorApplication.Services
             return _checker.CheckApplicationAsync(application);
         }
 
-        private async Task SaveResultAsync(Guid applicationId, CheckResult checkResult)
+        private async Task SaveResultAsync(Application application, CheckResult checkResult)
         {
             var uow = _uowFactory.Create();
 
             var historyRecord = new ApplicationStateHistory
             {
-                ApplicationId = applicationId,
+                RecordId = Guid.NewGuid(),
+                ApplicationId = application.Id,
                 Date = DateTime.UtcNow,
                 State = checkResult.State
             };
 
             uow.Get<ApplicationStateHistory>().Add(historyRecord);
+            application.LastCheckDate = historyRecord.Date;
+
             await uow.SaveChangesAsync();
         }
     }

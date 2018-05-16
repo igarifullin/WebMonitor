@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -49,12 +48,6 @@ namespace WebsiteMonitorApplication.Services
                 })
                 .ToArrayAsync();
 
-            return result;
-        }
-
-        private IEnumerable<T> GetDefaultOrEmpty<T>(IEnumerable<T> array)
-        {
-            var result = array.DefaultIfEmpty(default(T));
             return result;
         }
     }

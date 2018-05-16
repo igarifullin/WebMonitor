@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using WebsiteMonitorApplication.Core;
 using WebsiteMonitorApplication.Core.Entities;
@@ -23,27 +24,36 @@ namespace WebsiteMonitorApplication.Services
             try
             {
                 var httpResponse = await _httpClient.GetAsync(application.Url);
-                var httpCodeCategory = (int) httpResponse.StatusCode % 100;
+                var httpCodeCategory = (int) httpResponse.StatusCode / 100;
 
                 switch (httpCodeCategory)
                 {
+                    case 1:
                     case 2:
                     case 3:
                         result.State = ApplicationState.Available;
-                        result.IsSuccess = true;
                         break;
 
-                    case 5:
+                    default:
                         result.State = ApplicationState.Unavailable;
-                        result.IsSuccess = true;
                         break;
                 }
+
+                result.IsSuccess = true;
             }
             catch (HttpRequestException e)
             {
                 result.IsSuccess = false;
                 result.State = ApplicationState.CheckedWithError;
                 result.ErrorMessage = e.Message;
+                // TODO: add log
+            }
+            catch (Exception e)
+            {
+                result.IsSuccess = false;
+                result.State = ApplicationState.CheckedWithError;
+                result.ErrorMessage = e.Message;
+                // TODO: add log
             }
 
             return result;
