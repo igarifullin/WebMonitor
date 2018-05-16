@@ -23,10 +23,12 @@ _UpgradeReport_Files/
 ###############
 # Directories #
 ###############
-bin/
-obj/
-TestResults/
-logs/
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+[Tt]est[Rr]esults/
+[Ll]ogs/
 ###################
 # Web publish log #
 ###################
@@ -60,9 +62,6 @@ logs/
 ehthumbs.db
 Icon?
 Thumbs.db
-[Bb]in
-[Oo]bj
-[Tt]est[Rr]esults
 *.suo
 *.user
 *.[Cc]ache
