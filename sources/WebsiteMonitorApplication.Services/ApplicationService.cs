@@ -43,12 +43,40 @@ namespace WebsiteMonitorApplication.Services
                 .SelectMany(z => z.Histories.DefaultIfEmpty(), (z, x) => new ApplicationStateViewModel
                 {
                     Name = z.App.Name,
+                    Description = z.App.Description,
+                    Url = z.App.Url,
                     CheckDate = x != null ? (DateTime?)x.Date : null,
                     State = x != null ? x.State : ApplicationState.DidNotCheck
                 })
                 .ToArrayAsync();
 
             return result;
+        }
+
+        public async Task AddApplicationAsync(string name, string description, string url)
+        {
+            var application = new Application
+            {
+                Id = Guid.NewGuid(),
+                Description = description,
+                Name = name,
+                Url = url
+            };
+
+            var uow = _uowFactory.Create();
+            uow.Get<Application>().Add(application);
+            await uow.SaveChangesAsync();
+        }
+
+        public async Task RemoveApplicationAsync(Guid id)
+        {
+            var uow = _uowFactory.Create();
+            var application = await uow.Get<Application>().Where(x => x.Id == id).FirstOrDefaultAsync();
+            if (application != null)
+            {
+                uow.Get<Application>().Remove(application);
+                await uow.SaveChangesAsync();
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebsiteMonitorApplication.Core;
@@ -19,7 +20,7 @@ namespace WebsiteMonitorApplication.Services
             _defaultDelay = appSettings.DefaultDelay;
         }
 
-        public async Task<int> GetDelayAsync()
+        public async Task<TimeSpan> GetDelayAsync()
         {
             var uow = _uowFactory.Create();
 
@@ -30,10 +31,22 @@ namespace WebsiteMonitorApplication.Services
 
             if (config != null)
             {
-                return config.Interval.Seconds;
+                return config.Interval;
             }
 
-            return _defaultDelay;
+            return TimeSpan.FromSeconds(_defaultDelay);
+        }
+
+        public async Task ChangeDelayAsync(TimeSpan time)
+        {
+            var config = new Configuration
+            {
+                Interval = time
+            };
+
+            var uow = _uowFactory.Create();
+            uow.Get<Configuration>().Add(config);
+            await uow.SaveChangesAsync();
         }
     }
 }

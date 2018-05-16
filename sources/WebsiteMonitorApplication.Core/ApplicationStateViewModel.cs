@@ -14,6 +14,16 @@ namespace WebsiteMonitorApplication.Core
         public string Name { get; set; }
 
         /// <summary>
+        /// Description
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Url
+        /// </summary>
+        public string Url { get; set; }
+
+        /// <summary>
         /// Last state
         /// </summary>
         public ApplicationState State { get; set; }

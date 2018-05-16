@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "All applications";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+@using WebsiteMonitorApplication.Web.Services
+@model WebsiteMonitorApplication.Core.ApplicationStateViewModel[]
+
+<div class="container">
+    @foreach (var application in Model)
+    {
+        <div class="row">
+            <div class="col">
+                @application.Name
+            </div>
+            <div class="col">
+                @application.Description
+            </div>
+            <div class="col">
+                @application.Url
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-default">Delete</button>
+            </div>
+        </div>
+    }
+</div>

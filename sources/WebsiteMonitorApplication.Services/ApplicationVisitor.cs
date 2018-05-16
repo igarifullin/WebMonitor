@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using WebsiteMonitorApplication.Core.Services;
 
@@ -29,7 +30,7 @@ namespace WebsiteMonitorApplication.Services
         public async Task CompleteAsync()
         {
             var delay = await GetDelayAsync();
-            Thread.Sleep(delay * 1000);
+            Thread.Sleep(delay.Milliseconds);
 
             //var tokenResource = _cancellationTokenResourceAccessor.GetTokenSource();
             //if (!tokenResource.IsCancellationRequested)
@@ -38,7 +39,7 @@ namespace WebsiteMonitorApplication.Services
             //}
         }
 
-        private Task<int> GetDelayAsync()
+        private Task<TimeSpan> GetDelayAsync()
         {
             return _configurationService.GetDelayAsync();
         }

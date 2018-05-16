@@ -32,12 +32,12 @@ namespace WebsiteMonitorApplication.Services.Tests
             var sut = CreateSut(uowFactory, new AppSettings());
 
             // act
-            int delay = await sut.GetDelayAsync();
+            TimeSpan delay = await sut.GetDelayAsync();
 
             // assert
-            Assert.NotEqual(0, delay);
-            Assert.NotEqual(configOld.Interval.Seconds, delay);
-            Assert.Equal(configLatest.Interval.Seconds, delay);
+            Assert.NotEqual(0, delay.Seconds);
+            Assert.NotEqual(configOld.Interval.Seconds, delay.Seconds);
+            Assert.Equal(configLatest.Interval.Seconds, delay.Seconds);
         }
 
         [Fact]
@@ -53,11 +53,11 @@ namespace WebsiteMonitorApplication.Services.Tests
             var sut = CreateSut(uowFactory, appSettings);
 
             // act
-            int delay = await sut.GetDelayAsync();
+            TimeSpan delay = await sut.GetDelayAsync();
 
             // assert
-            Assert.NotEqual(0, delay);
-            Assert.Equal(appSettings.DefaultDelay, delay);
+            Assert.NotEqual(0, delay.Seconds);
+            Assert.Equal(appSettings.DefaultDelay, delay.Seconds);
         }
 
         private ConfigurationService CreateSut(IUnitOfWorkFactory uowFactory,

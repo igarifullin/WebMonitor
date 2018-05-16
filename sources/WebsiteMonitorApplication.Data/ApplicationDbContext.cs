@@ -39,6 +39,10 @@ namespace WebsiteMonitorApplication.Data
                 .IsRequired()
                 .HasForeignKey(x => x.ApplicationId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<Configuration>()
+                .Property(f => f.Id)
+                .ValueGeneratedOnAdd();
         }
     }
 }

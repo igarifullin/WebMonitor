@@ -1,34 +1,37 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    var i = 0;
 }
 
-@using WebsiteMonitorApplication.Core.Enums
 @using WebsiteMonitorApplication.Web.Services
 @model WebsiteMonitorApplication.Core.ApplicationStateViewModel[]
-    
-    
-    @foreach (var application in Model)
-    {
-        i++;
 
-        var style = ApplicationStyleHelper.GetStyleForApplication(application.State);
-        var status = ApplicationStyleHelper.GetStatus(application.State);
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
 
-        <div class="card @style mb-3" style="max-width: 18rem;">
-            @if (application.CheckDate.HasValue)
+            @foreach (var application in Model)
             {
-                <div class="card-header">Status: @status</div>
+                var style = ApplicationStyleHelper.GetStyleForApplication(application.State);
+                var status = ApplicationStyleHelper.GetStatus(application.State);
+
+                <div class="card @style mb-3" style="max-width: 18rem;">
+                    @if (application.CheckDate.HasValue)
+                    {
+                        <div class="card-header">Status: @status</div>
+                    }
+                    else
+                    {
+                        <div class="card-header">Didn't checked yet</div>
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@application.Name</h5>
+                        <p class="card-text">
+                            Last check: @application.CheckDate
+                        </p>
+                    </div>
+                </div>
             }
-            else
-            {
-                <div class="card-header">Didn't checked yet</div>
-            }
-            <div class="card-body">
-                <h5 class="card-title">@application.Name</h5>
-                <p class="card-text">
-                    Last check: @application.CheckDate
-                </p>
-            </div>
+
         </div>
-    }
+    </div>
+</div>
