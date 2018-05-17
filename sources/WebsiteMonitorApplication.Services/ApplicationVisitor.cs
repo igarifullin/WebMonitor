@@ -7,15 +7,12 @@ namespace WebsiteMonitorApplication.Services
 {
     public class ApplicationVisitor : IApplicationVisitor
     {
-        //private readonly ICancellationTokenResourceAccessor _cancellationTokenResourceAccessor;
         private readonly IApplicationMonitorService _monitorService;
         private readonly IConfigurationService _configurationService;
 
-        public ApplicationVisitor(//ICancellationTokenResourceAccessor cancellationTokenResourceAccessor,
-            IApplicationMonitorService monitorService,
+        public ApplicationVisitor(IApplicationMonitorService monitorService,
             IConfigurationService configurationService)
         {
-            //_cancellationTokenResourceAccessor = cancellationTokenResourceAccessor;
             _monitorService = monitorService;
             _configurationService = configurationService;
         }
@@ -32,11 +29,7 @@ namespace WebsiteMonitorApplication.Services
             var delay = await GetDelayAsync();
             Thread.Sleep(delay.Milliseconds);
 
-            //var tokenResource = _cancellationTokenResourceAccessor.GetTokenSource();
-            //if (!tokenResource.IsCancellationRequested)
-            //{
-                await StartAsync();
-            //}
+            await StartAsync();
         }
 
         private Task<TimeSpan> GetDelayAsync()

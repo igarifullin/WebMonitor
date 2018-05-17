@@ -58,7 +58,6 @@ namespace WebsiteMonitorApplication.Web
             services.AddApplicationMonitor();
             services.AddConfigurationService();
             services.AddApplicationVisitor();
-            services.AddCancellationTokenResourceAccessor();
 
             services.AddMvc();
 

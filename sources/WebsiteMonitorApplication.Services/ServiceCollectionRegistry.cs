@@ -41,10 +41,5 @@ namespace WebsiteMonitorApplication.Services
         {
             services.AddSingleton<IApplicationVisitor, ApplicationVisitor>();
         }
-
-        public static void AddCancellationTokenResourceAccessor(this IServiceCollection services)
-        {
-            services.AddSingleton<ICancellationTokenResourceAccessor, CancellationTokenResourceAccessor>();
-        }
     }
 }
