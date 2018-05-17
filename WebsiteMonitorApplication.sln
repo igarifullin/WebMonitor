@@ -11,11 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebsiteMonitorApplication.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebsiteMonitorApplication.Services", "sources\WebsiteMonitorApplication.Services\WebsiteMonitorApplication.Services.csproj", "{EE45A4E5-3D03-4EB2-A21D-1385B5C28066}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebsiteMonitorApplication.Data", "sources\WebsiteMonitorApplication.Data\WebsiteMonitorApplication.Data.csproj", "{5C187254-29D8-4BD9-8C23-6B307DC531A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebsiteMonitorApplication.Data", "sources\WebsiteMonitorApplication.Data\WebsiteMonitorApplication.Data.csproj", "{5C187254-29D8-4BD9-8C23-6B307DC531A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{DE66FF9F-4277-4483-9D25-031ACBA0A995}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebsiteMonitorApplication.Services.Tests", "tests\WebsiteMonitorApplication.Services.Tests\WebsiteMonitorApplication.Services.Tests.csproj", "{4C1BEA95-DAE3-4B5C-9902-F738C917C8B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebsiteMonitorApplication.Services.Tests", "tests\WebsiteMonitorApplication.Services.Tests\WebsiteMonitorApplication.Services.Tests.csproj", "{4C1BEA95-DAE3-4B5C-9902-F738C917C8B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebsiteMonitorApplication.Integration.Tests", "tests\WebsiteMonitorApplication.Integration.Tests\WebsiteMonitorApplication.Integration.Tests.csproj", "{E5DB0599-9BE4-4E70-A4B0-ED2BAD4452EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{4C1BEA95-DAE3-4B5C-9902-F738C917C8B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C1BEA95-DAE3-4B5C-9902-F738C917C8B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C1BEA95-DAE3-4B5C-9902-F738C917C8B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5DB0599-9BE4-4E70-A4B0-ED2BAD4452EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5DB0599-9BE4-4E70-A4B0-ED2BAD4452EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5DB0599-9BE4-4E70-A4B0-ED2BAD4452EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5DB0599-9BE4-4E70-A4B0-ED2BAD4452EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{EE45A4E5-3D03-4EB2-A21D-1385B5C28066} = {0B857EF2-C2E6-4111-BAA8-FEB73AA00ED4}
 		{5C187254-29D8-4BD9-8C23-6B307DC531A2} = {0B857EF2-C2E6-4111-BAA8-FEB73AA00ED4}
 		{4C1BEA95-DAE3-4B5C-9902-F738C917C8B5} = {DE66FF9F-4277-4483-9D25-031ACBA0A995}
+		{E5DB0599-9BE4-4E70-A4B0-ED2BAD4452EF} = {DE66FF9F-4277-4483-9D25-031ACBA0A995}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C4199292-85D1-404C-8F20-37E6B1735315}
